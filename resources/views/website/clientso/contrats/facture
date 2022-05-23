@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- account 07:01:11 GMT -->
+@include('website.partials.header')
+
+<body>
+    <div class="boxed_wrapper">
+
+        <div class="preloader"></div>
+
+        @include('website.partials.menu')
+        <!--End Main Header-->
+
+        @extends('website.prestataires.layouts.app')
+
+        @section('title', 'Tableau de bord prestataire')
+
+        @section('content')
+        <div id="">
+
+            @include('website.clients.partials.side_menu')
+
+            <main>
+                <div class="job_container">
+                    <div class="container">
+                        <div class="row job_main">
+                            <!---Side menu  -->
+
+                            <!---/ Side menu -->
+                            <div class=" job_main_right">
+                                <div class="row job_section">
+                                    <div class="col-sm-12">
+                                        <div class="jm_headings">
+                                            <h6>Vos factures en cours sont présentés dans le tableau ci-dessous.</h6>
+                                        </div>
+                                        @include('website.inc.messages')
+                                        <div class="table-cont">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date de la facture</th>
+                                                        <th>Montant</th>
+                                                        <th>Reference</th>
+                                                        <th>Statut </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($factures as $facture)
+                                                        <tr>
+                                                            <td>
+                                                                <h6><a
+                                                                        href="#">{{ \Carbon\Carbon::parse($facture->date_facture)->format('d/m/Y') }}</a>
+                                                                </h6>
+                                                                <ul class="job-dashboard-actions">
+                                                                    @if ($facture->status == false)
+                                                                        <li>
+                                                                            <a href="{{ route('paiementfacture', $facture->id) }}"
+                                                                                class="job-dashboard-action-mark_filled">
+                                                                                Payer</a>
+                                                                        </li>
+                                                                    @endif
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                {{ $facture->amount }} F CFA
+                                                            </td>
+                                                            <td>
+                                                                {{ $facture->reference }}
+                                                            </td>
+                                                            <td>
+                                                                @if ($facture->status == true)
+                                                                    <label class="text-success">Facture payée</label>
+                                                                @else
+                                                                    <label class="text-danger">Facture non payée</label>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        @endsection
+
+
+    </div>
+
+
+
+    @include('website.partials.js')
+
+
+
+</body>
+
+
+<!-- account 07:01:11 GMT -->
+</html>
+

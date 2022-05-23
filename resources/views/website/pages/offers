@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+================================================== -->
+    <title>Nos Offres d'emploi | Centralresource</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="{{ asset('assets/website/images/cr-logo-website.png') }}" type="image/gif" sizes="64x64">
+
+    <!-- CSS
+================================================== -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&amp;display=swap&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/website/css/all.min.css') }}">
+    <link href="{{ asset('assets/website/css/aos.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/website/css/bootstrap.min.css') }}">
+    <link href="{{ asset('assets/website/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/website/css/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/website/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/website/css/color-1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/btn.css') }}">
+</head>
+
+<body>
+    <header class="header_01 header_inner">
+        <div class="header_main">
+            <!-- Header -->
+            @include('website.partials.header')
+            <!--/ Header -->
+            <div class="header_btm">
+                <h2>Offres d'emploi</h2>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="single_job">
+            <div class="container">
+                <div class="row">
+                    @foreach ($offers as $offer)
+                        <div class="col-sm-6">
+                            <div class="featured_box">
+                                <div class='fb_content'>
+                                    <h4>
+                                        <a href="{{ $offer->getLink() }}">{{ $offer->title_offer }}</a>
+                                    </h4>
+                                    <ul>
+                                        @if ($offer->user->personne_type == 'entreprise')
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fas fa-landmark"></i>
+                                                    Entreprise
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="#">
+                                                    <i class="far fa-user"></i>
+                                                    Particulier
+                                                </a>
+                                            </li>
+                                        @endif
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                {{ $offer->villes->title_ville }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-clock"></i>
+                                                {{ $offer->created_at->format('d/m/Y') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('offer.show.single', $offer->id) }}">
+                                                <i class="far fa-eye"></i>
+                                                {{-- {{ $offer->created_at->format('d/m/Y') }} --}}
+                                                Voir
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                @if ($offer->user->personne_type == 'particulier')
+                                    <div class="fb_action">
+                                        <a class="btn btn-third"
+                                            href="{{ route('prestataire.offer.apply', $offer->id) }}">Voir plus</a>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ $offer->title_offer }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        </div>
+
+
+
+    </main>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i></button>
+    <!-- Footer Container
+================================================== -->
+
+    @include('website.partials.footer')
+
+    <!-- End Footer Container
+================================================== -->
+
+    <!-- Scripts
+================================================== -->
+    <script src="{{ asset('assets/website/js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript">
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <script src="{{ asset('assets/website/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/website/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/website/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/website/js/aos.js') }}"></script>
+    <script src="{{ asset('assets/website/js/custom.js') }}"></script>
+</body>
+
+</html>
