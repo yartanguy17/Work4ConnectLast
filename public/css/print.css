@@ -1,0 +1,49 @@
+body{
+    width: 600px;
+    margin: 0 auto;
+    font-family: Poppins, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #CCC;
+}
+
+
+table{
+    width: 100%;
+    margin-top: 20px;
+}
+
+th{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+th, td, tr{
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.font-700{
+    font-weight: 700;
+}
+
+.prestater-name{
+    font-size: 16px;
+}
+.client-name{
+    font-size: 20px;
+}
+
+.font-10{
+    font-size: 10px;
+}
