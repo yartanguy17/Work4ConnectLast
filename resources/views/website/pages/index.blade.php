@@ -47,7 +47,7 @@
                         </li>
                         <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1687" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/slides/v2-2.jpg" data-title="Slide Title" data-transition="parallaxvertical">
 
-                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/slides/v2-2.jpg">
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="{{ asset('assets/front/images/slides/images.jpg') }}">
 
 
                             <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['700','800','700','500']" data-whitespace="normal" data-hoffset="['15','15','15','15']" data-voffset="['-160','-100','-110','-105']" data-x="['right','right','right','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' style="z-index: 7; white-space: nowrap;">
@@ -94,10 +94,10 @@
                             </div>
                             <div class="inner-content">
                                 <div class="text">
-                                    <h3>Concept Designs</h3>
+                                    <h3>Create your account</h3>
                                     <p>Indignation dislike who are beguile works & demoralized the charms.</p>
                                 </div>
-                                <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a>
+                                {{-- <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a> --}}
                             </div>
                         </div>
                     </div>
@@ -110,10 +110,10 @@
                             </div>
                             <div class="inner-content">
                                 <div class="text">
-                                    <h3>Project Designs</h3>
+                                    <h3>Post your ads</h3>
                                     <p>Our power of choice is untrammelled and all nothing prevents best.</p>
                                 </div>
-                                <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a>
+                                {{-- <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a> --}}
                             </div>
                         </div>
                     </div>
@@ -126,10 +126,10 @@
                             </div>
                             <div class="inner-content">
                                 <div class="text">
-                                    <h3>Make Overs</h3>
+                                    <h3>Get jobseekers</h3>
                                     <p>Every pleasure is to be welcomed & every circumstances & owing power.</p>
                                 </div>
-                                <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a>
+                                {{-- <a class="btn-one" href="#">Read More<span class="flaticon-next"></span></a> --}}
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
 
 
         <!--Start Working Process Area-->
-        <section class="working-process-area">
+        {{-- <section class="working-process-area">
             <div class="container">
                 <div class="sec-title text-center">
 
@@ -259,7 +259,7 @@
                     @endforeach
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!--End Working Process Area-->
 
         <!--Start Testimonial Area-->
